@@ -1,0 +1,18 @@
+version : "3"
+
+services:
+  frontend:
+    image: php:apache
+    volumes:
+    - ./frontend:/var/www/html
+    ports: 
+    - 2000:80
+
+  backend:
+    image: node:10
+    volumes:
+      - ./backend:/var/node/app
+    working_dir: /var/node/app
+    command: node index.js
+    ports: 
+      - 3000:3000
